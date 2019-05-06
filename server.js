@@ -19,16 +19,16 @@ const proxy = require('koa-whistle')
 
 proxy.startWhistle({
   name: 'package.name', // 必填，一般为项目package.json的name字段
-  port: PORT + 10000, // 必填，whistle监听的端口号，一般可以设置为服务器端口号 + 10000，后面讲如何访问该whistle操作界面，可以直接通过web服务器的端口来访问
+  port: PORT, // 必填，whistle监听的端口号，一般可以设置为服务器端口号 + 10000，后面讲如何访问该whistle操作界面，可以直接通过web服务器的端口来访问
   // baseDir: path.join(__dirname, '../project'), // 可选，一般为项目的根目录路径，主要用于内置的whistle加载项目自带的whistle插件
-  username: process.env.USER, // 可选，设置whistle操作界面的用户名
-  password: process.env.PWD, // 可选，设置whistle操作界面的密码
+  username: process.env.USER || 'u', // 可选，设置whistle操作界面的用户名
+  password: process.env.PWD || 'p', // 可选，设置whistle操作界面的密码
   rules: 'www.test.com 127.0.0.1\nwww.abc.com 1.1.1.1:8080', // 可选，设置whistle的默认规则Default
   values: {test: 123, abc: 321}, // 可选，设置whistle的Values
   sockets: 60 // 可选，设置同一个域名whistle的并发请求量，默认为60，一般无需配置
 })
 
-app.listen(PORT, function (err) {
+app.listen(PORT + 1, function (err) {
   console.log('Node app is running on port:', PORT);
 
   // 注册全局未捕获异常处理器
