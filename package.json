@@ -18,9 +18,9 @@
     "leanengine": "^3.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
     "koa": "^2.7.0",
-    "koa-whistle": "^1.1.5"
+    "koa-whistle": "^1.1.5",
+    "nodemon": "^1.11.0"
   },
   "engines": {
     "node": "8.x"
