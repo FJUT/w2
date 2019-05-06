@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "ejs": "^2.5.6",
-    "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
@@ -19,7 +18,9 @@
     "leanengine": "^3.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "koa": "^2.7.0",
+    "koa-whistle": "^1.1.5"
   },
   "engines": {
     "node": "8.x"
