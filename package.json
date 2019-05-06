@@ -15,11 +15,11 @@
     "koa-static": "^4.0.1",
     "koa-views": "^6.0.2",
     "leancloud-storage": "^3.0.2",
+    "koa": "^2.7.0",
+    "koa-whistle": "^1.1.5",
     "leanengine": "^3.0.0"
   },
   "devDependencies": {
-    "koa": "^2.7.0",
-    "koa-whistle": "^1.1.5",
     "nodemon": "^1.11.0"
   },
   "engines": {
