@@ -17,16 +17,16 @@ var PORT = parseInt(process.env.LEANCLOUD_APP_PORT || process.env.PORT || 3000);
 
 const proxy = require('koa-whistle')
 
-proxy.startWhistle({
-  name: 'package.name', // 必填，一般为项目package.json的name字段
-  port: PORT + 1000, // 必填，whistle监听的端口号，一般可以设置为服务器端口号 + 10000，后面讲如何访问该whistle操作界面，可以直接通过web服务器的端口来访问
-  // baseDir: path.join(__dirname, '../project'), // 可选，一般为项目的根目录路径，主要用于内置的whistle加载项目自带的whistle插件
-  username: process.env.LOGIN_NAME || 'u', // 可选，设置whistle操作界面的用户名
-  password: process.env.LOGIN_PWD || 'p', // 可选，设置whistle操作界面的密码
-  rules: 'www.test.com 127.0.0.1\nwww.abc.com 1.1.1.1:8080', // 可选，设置whistle的默认规则Default
-  values: {test: 123, abc: 321}, // 可选，设置whistle的Values
-  sockets: 60 // 可选，设置同一个域名whistle的并发请求量，默认为60，一般无需配置
-})
+// proxy.startWhistle({
+//   name: 'package.name', // 必填，一般为项目package.json的name字段
+//   port: PORT + 1000, // 必填，whistle监听的端口号，一般可以设置为服务器端口号 + 10000，后面讲如何访问该whistle操作界面，可以直接通过web服务器的端口来访问
+//   // baseDir: path.join(__dirname, '../project'), // 可选，一般为项目的根目录路径，主要用于内置的whistle加载项目自带的whistle插件
+//   username: process.env.LOGIN_NAME || 'u', // 可选，设置whistle操作界面的用户名
+//   password: process.env.LOGIN_PWD || 'p', // 可选，设置whistle操作界面的密码
+//   rules: 'www.test.com 127.0.0.1\nwww.abc.com 1.1.1.1:8080', // 可选，设置whistle的默认规则Default
+//   values: {test: 123, abc: 321}, // 可选，设置whistle的Values
+//   sockets: 60 // 可选，设置同一个域名whistle的并发请求量，默认为60，一般无需配置
+// })
 
 
 
@@ -38,6 +38,8 @@ app.use(proxy.createKoaMiddleware({
   serverPort, // 必填，web服务器监听的端口
   name: 'package.name', // 可选，一般为项目package.json的name字段，默认为koa-whistle，用于设置请求头标识
   pathname: '/whistle', // 可选，默认为/whistle, 访问whistle界面的路径，默认可以通过 http://127.0.0.1:6001/whistle访问whistle的界面
+  proxyPort: 16001, // 必填，指定外部代理服务的端口
+	proxyPort: '47.106.100.48', // 可选，指定外部代理服务的ip，默认为127.0.0.1
   rules: [`www.test.com 127.0.0.1:6666`, `www.abc.com 127.0.0.1`], // 可选，字符串或数组，设置用户请求的whistle规则，具体参见后面API说明
   values: { a: 1, b: 2 } // 可选，设置用户请求的whistle的Values，具体参见后面API说明
 }))
