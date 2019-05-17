@@ -1,0 +1,1 @@
+{"filesOrder":[],"defalutRules":"*.pingan.com.cn html://{vConsole.html}\n*.pingan.com.cn filter://intercept\nhttps://b.pingan.com.cn/exchange/ https://test-b-fat.pingan.com.cn/static/act/beta/exchange/\nhttps://b.pingan.com.cn/static/act/koudai/ https://test-b-fat.pingan.com.cn/static/act/beta/koudai/\n/./ whistle.proxyauth://test:123","selectedList":[]}
