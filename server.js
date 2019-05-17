@@ -1,16 +1,19 @@
 const proxy = require('koa-whistle')
+const path = require('path')
+
+console.log(path.join(__dirname, './config'))
 
 proxy.startWhistle({
   name: 'package.name', // 必填，一般为项目package.json的name字段
   port: 16001, // 必填，whistle监听的端口号，一般可以设置为服务器端口号 + 10000，后面讲如何访问该whistle操作界面，可以直接通过web服务器的端口来访问
-  // baseDir: path.join(__dirname, '../project'), // 可选，一般为项目的根目录路径，主要用于内置的whistle加载项目自带的whistle插件
+  baseDir: path.join(path.join(__dirname, './config')), // 可选，一般为项目的根目录路径，主要用于内置的whistle加载项目自带的whistle插件
   username: 'a', // 可选，设置whistle操作界面的用户名
   password: 'a', // 可选，设置whistle操作界面的密码
   rules: '*.pingan.com.cn html://{vConsole.html}\n*.pingan.com.cn filter://intercept\nhttps://b.pingan.com.cn/exchange/ https://test-b-fat.pingan.com.cn/static/act/beta/exchange/\nhttps://b.pingan.com.cn/static/act/koudai/ https://test-b-fat.pingan.com.cn/static/act/beta/koudai/\n/./ whistle.proxyauth://test:123', // 可选，设置whistle的默认规则Default
   values: {
-  "vConsole.html": "<script src=\"https://cdn.bootcss.com/vConsole/2.0.0/vconsole.min.js\"></script>",
-  "abc": "321"
-},
+    'vConsole.html': '<script src="https://cdn.bootcss.com/vConsole/2.0.0/vconsole.min.js"></script>',
+    'abc': '321'
+  },
   sockets: 60 // 可选，设置同一个域名whistle的并发请求量，默认为60，一般无需配置
 })
 
