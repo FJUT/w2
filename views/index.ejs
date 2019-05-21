@@ -19,7 +19,7 @@
                                 
                                 <h1 id="https">Https</h1><blockquote><p>建议使用 <code>Node v6</code> 或以上版本，否则会存在性能问题，及在Chrome或APP上抓包HTTPS请求会有问题。</p><p><strong>在iOS上安装根证书时，需要先关闭<code>HTTPS拦截</code>，否则将显示安装失败。</strong></p></blockquote><p>
                                 下载地址：<a href="/whistle/cgi-bin/rootca">/whistle/cgi-bin/rootca</a>
-                                </p><p><img alt="Https" src="https://wproxy.org/whistle/img/https.gif"></p><h2 id="安装根证书">安装根证书</h2><blockquote><p>证书按下面步骤安装后，如果还出现安全提醒，这个主要原因是之前你访问过该页面，导致长连接已建立，可以等段时间再访问、或重新打开浏览器</p></blockquote><p>如上图下载完根证书后点击rootCA.crt文件，弹出根证书安装对话框。</p><ol><li><p>Windows:</p><p><a href="https://msdn.microsoft.com/zh-cn/library/cc750534.aspx" target="_blank">Installing a root certificate on Windows</a></p><p><img alt="img" src="https://wproxy.org/whistle/img/windows_rootca.jpeg"></p><p>下载证书后，双击证书，根据指引安装证书。证书安装过程，要确保证书存储到<code>受信任的根证书颁发机构</code>下。</p></li>
+                                </p><p><img alt="Https" src="http://lcf.kainy.cn/34d1bea0e53478210b9b/%E5%9B%BE%E7%89%87%201.png"></p><h2 id="安装根证书">安装根证书</h2><blockquote><p>证书按下面步骤安装后，如果还出现安全提醒，这个主要原因是之前你访问过该页面，导致长连接已建立，可以等段时间再访问、或重新打开浏览器</p></blockquote><p>如上图下载完根证书后点击rootCA.crt文件，弹出根证书安装对话框。</p><ol><li><p>Windows:</p><p><a href="https://msdn.microsoft.com/zh-cn/library/cc750534.aspx" target="_blank">Installing a root certificate on Windows</a></p><p><img alt="img" src="https://wproxy.org/whistle/img/windows_rootca.jpeg"></p><p>下载证书后，双击证书，根据指引安装证书。证书安装过程，要确保证书存储到<code>受信任的根证书颁发机构</code>下。</p></li>
 <li><p>Mac: <a href="http://zhidao.baidu.com/link?url=bQ8ZnDTxUIlqruQ56NYjBmwztWPlZtv9AIRazkoKeMsdpAq7mcwXOHQduRwmHV1M2hf143vqBxHzKb1tg0L03DJoj6XS109P8zBNF1E9uU_" target="_blank">Mac根证书怎么安装</a></p><p>Mac 安装证书后，需要手动信任证书，步骤如下：</p><p>打开证书管理界面，找到带有 <code>whistle</code> 的字样的证书，如果有多个又不确定最新安装的是哪个，可以全部删除后重新安装</p><p><img alt="img" src="https://ae01.alicdn.com/kf/HTB1ZtoBdYsTMeJjSszh763GCFXai.png"></p><p>双击证书后，点击 <code>Trust</code> 左边展开选项，红色部分选择 <code>Always Trust</code> （总是信任），点击左上角关闭当前界面会要求输入密码；输入密码后可
 以看到证书上面红色的图标 <code>x</code> 不见了，到这一步说明完成证书安装。</p><p><img alt="img" src="https://ae01.alicdn.com/kf/HTB1UWItd8USMeJjy1zk761WmpXaT.png"></p></li>
 <li><p>Firefox:</p><p>菜单 &gt; 首选项 &gt; 高级 &gt; 证书 &gt; 证书机构 &gt; 导入 -&gt; 选中所有checkbox -&gt; 确定</p></li>
@@ -32,7 +32,8 @@
 <li>done
 </li></ul>
 <p><img alt="ubuntu Chromium" src="https://cloud.githubusercontent.com/assets/16034964/20553721/9c3d1bda-b191-11e6-880f-9fd6976b95cc.png"></p></li>
-<li><p>手机</p><p><strong>iOS</strong></p><ul><li>手机设置代理后，Safari 地址栏输入 <code>rootca.pro</code>，按提示安装证书（或者通过 <code>whistle</code> 控制台的二维码扫码安装，iOS安装根证书需要到连接远程服务器进行验证，需要暂时把<strong>Https拦截功能关掉</strong>）
+
+<li>iOS 安装证书，设置路径：<code>设置 &gt; 通用 &gt; 描述文件与设备管理 &gt; 已下载的描述文件</code>
 </li>
 <li>iOS 10.3 之后需要手动信任自定义根证书，设置路径：<code>Settings &gt; General &gt; About &gt; Certificate Trust Testings</code>
 </li></ul>
